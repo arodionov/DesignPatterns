@@ -1,10 +1,10 @@
 package ua.edu.ucu.decorator;
 
-abstract class ToppingDecorator implements Pizza {
+abstract class AbstractToppingDecorator implements Pizza {
 
     protected Pizza toppingPizza;
 
-    public ToppingDecorator(Pizza toppingPizza) {
+    public AbstractToppingDecorator(Pizza toppingPizza) {
         this.toppingPizza = toppingPizza;
     }
 }

@@ -1,6 +1,6 @@
 package ua.edu.ucu.decorator;
 
-public class ChickenToppings extends ToppingDecorator {
+public class ChickenToppings extends AbstractToppingDecorator {
 
     public ChickenToppings(Pizza toppingPizza) {
         super(toppingPizza);
