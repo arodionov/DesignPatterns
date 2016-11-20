@@ -10,8 +10,28 @@ class SinFunc implements DoubleFunction {
     }
 }
 
-public class SequentialCalculate {
+public class SequentialCalculate implements IntegralCalculator {
 
+    private double start;
+    private double end;
+    private final double step = 0.00001;
+    private DoubleFunction func;
+
+    public SequentialCalculate() {
+    }  
+    
+    public SequentialCalculate(double start, double end, DoubleFunction func) {
+        this.start = start;
+        this.end = end;
+        this.func = func;
+    }   
+    
+    @Override
+    public double calculate() {
+        return calculate(start, end, step, func);
+    }
+
+    @Override
     public double calculate(double start, double end, double step, DoubleFunction func) {
         double result = 0.0;
         double x = start;
@@ -31,14 +51,14 @@ public class SequentialCalculate {
         // With anonymous class
         res = new SequentialCalculate().calculate(0, 10, STEP,
                 new DoubleFunction() {
-                    @Override
-                    public double apply(double x) {
-                        return sin(x) * sin(x) + cos(x) * cos(x);
-                    }
-                }
-            );
+            @Override
+            public double apply(double x) {
+                return sin(x) * sin(x) + cos(x) * cos(x);
+            }
+        }
+        );
         System.out.println(res);
-        
+
         // With Java 8 lambdas
         res = new SequentialCalculate().calculate(0, 10, STEP, x -> sin(x) * sin(x) + cos(x) * cos(x));
         System.out.println(res);

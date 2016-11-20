@@ -1,6 +1,6 @@
 package ua.edu.ucu.strategy;
 
-interface DoubleFunction {
+public interface DoubleFunction {
 
     double apply(double x);
 }
